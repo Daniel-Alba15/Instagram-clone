@@ -1,0 +1,19 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+
+<div>
+    <nav class="navbar navbar-light navbar-expand-md" id="main_navbar">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'posts:feed' %}">Instagram</a>
+          <button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navcol-1">
+          <input type="search" id="search_bar" />
+          <a class="btn btn-primary" role="button" id="profile_btn" href="{% url 'users:detail' request.user.username %}">Button</a>
+          <a class="btn btn-dark" role="button" id="logout_btn" href="{% url 'users:logout' %}">Log out</a></div>
+        </div>
+    </nav>
+</div>

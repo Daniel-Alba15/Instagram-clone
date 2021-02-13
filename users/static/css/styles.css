@@ -1,0 +1,51 @@
+/* Login page*/
+:root {
+  --orange: #D68910;
+  /* --orange: #1D8348; */
+}
+
+
+body {
+  background-image: linear-gradient(to left top, #d16ba5, #ab67a0, #876194, #675a82, #4f506c, #4d5873, #4c6179, #4c697e, #4f8ba4, #4dafc5, #4ed5df, #5ffbf1);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: var(--dark);
+}
+
+
+#login_form {
+  width: 25%;
+  margin: auto;
+  padding: 10px;
+  position: absolute;
+  background-color: rgb(52,58,64,.7);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translateY(-50%);
+  left: 70%;
+  border-radius: 2%;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  display: block;
+  margin-top: 5%;
+}
+
+#login_btn {
+  margin-top: 2em;
+  border-radius: 5%;
+  margin-bottom: 1em;
+  background: var(--orange);
+  border-color: var(--orange);
+}
+
+#signup_btn {
+  margin-bottom: 5px;
+  background: var(--orange);
+  border-color: var(--orange);
+}
+

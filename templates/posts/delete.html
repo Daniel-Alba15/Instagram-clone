@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'nav.html' %}
+
+<img src="{{ post.photo.url }}" alt="user_picture" width="500" height="500">
+<strong>
+    <p>{{ post.title }}</p>
+</strong>
+<i>
+    <p>{{ post.created }}</p>
+</i>
+<br><br>
+<form action="{% url 'posts:delete' pk %}" method="POST">{% csrf_token %}
+    <input type="submit" value="True" name="aceptar">
+</form>
+{% endblock content %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+    <title>Log in</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock head %}
+
+
+{% block content %}
+
+{% if succes_sign_up %}
+    <p>{{ succes_sign_up }}</p>
+{% endif %}
+
+
+<p>{{ request.body }}</p>
+
+{% if form.errors %}
+    <div role="alert" class="alert alert-danger" id="login_errors">
+        <span class="text-uppercase text-center" id="error">{{ form.errors }}</span>
+    </div>
+{% endif %}
+
+<!-- El nombre de la url en action es el mismo que se le pueso al metodo en el archivo urls.py -->
+<form method="POST" action="{% url 'users:login' %}"> {% csrf_token %}
+    <div id="login_form" class="shadow-lg">
+        <input type="text" class="center" name="username" placeholder="Username" required>
+        <input type="password" id="password" class="center" placeholder="Password" name="password" required>
+        <button class="btn btn-primary center" id="login_btn" type="submit">Login</button>
+        <a class="btn btn-primary center" id="signup_btn" role="button" href="{% url 'users:signup' %}">Sign up</a>
+    </div>
+</form>
+{% endblock content %}

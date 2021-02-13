@@ -1,0 +1,24 @@
+{% extends 'base.html' %} 
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+
+{% include 'nav.html' %}
+<br>
+{%for post in posts %}
+    <div class="fullCard" id="thumbnail">
+        <div class="cardContent">
+            <div class="cardText">
+                <img id="user-profile" src="{{ post.profile.picture.url }}" alt="profile_picture">
+                <p id="username">@{{ post.user.username }}</p>
+                <p id="name">{{ post.user.get_full_name }}</p>
+                <p id="description-post">{{ post.title}}</p>
+                <img id="post-content" src="{{ post.photo.url }}">
+                <p id="description-post"><i>{{ post.created }}</i></p>
+            </div>
+        </div>
+    </div>
+    <br><br>
+{% endfor %}
+
+{% endblock content %}  

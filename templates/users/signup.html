@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    {% load static %}
+        <link rel="stylesheet" href="{% static 'css/sign_up.css' %}">
+        <title>Register!</title>
+{% endblock head %}
+
+{% block content %}
+
+{% if error %}
+    <p style="color : red;">{{ error }}!</p>
+{% endif %}
+{% if succes_sign_up %}
+    <p>{{ succes_sign_up }}</p>
+{% endif %}
+
+<form method="POST" action="{% url 'users:signup' %}"> {% csrf_token %}
+    <div class="container signup_form">
+        <input type="email" placeholder="Email" name="email" maxlength="100" required/>
+        <input type="text" placeholder="Username" name="username" maxlength="100" required/>
+        <input type="password" placeholder="Password" name="password" maxlength="100" minlength="7" required/>
+        <input type="password" placeholder="Rewrite your password" name="password_confirm" maxlength="100" minlength="7" required/>
+        <input type="text" placeholder="First name" name="first_name" maxlength="100" required/>
+        <input type="text" placeholder="Last name" name="last_name" maxlength="100" required/>
+        <button class="btn btn-primary color_btn" id="register_btn" type="submit">Register</button>
+        <small class="form-text text-center text-white" id="alert">Have an account? Log in!</small>
+        <a class="btn btn-primary color_btn" role="button" id="login_btn" href="{% url 'users:login' %}">Log in</a>
+    </div>
+</form>
+{% endblock content %}

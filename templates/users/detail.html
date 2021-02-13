@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% include 'nav.html' %}
+
+
+<p>@{{ user.username }}</p>
+<p>{{ user.get_full_name }}</p>
+{% if user.profile.picture %}
+    <img class="border-img-user" src="{{ user.profile.picture.url }}" alt="user_picture" width="200" height="200">
+{% endif %}
+<p>{{ user.profile.bio }}</p>
+<p>{{ user.profile.website }}</p>
+<p>{{ user.profile.phone_number }}</p>
+<p>{{ user.profile.created }}</p>
+
+<br>
+<p>-----------------------------------------</p>
+{% if posts %}
+    {% for post in posts %}
+        <img class="posts" src="{{ post.photo.url }}" alt="{{ post.photo }}" width="300" height="300">
+        {% if request.user.id == post.user.id %}
+            <a href="{% url 'posts:delete' post.id %}">Delete</a>
+        {% endif %}
+        <br>
+        <strong>{{ post.title }}</strong> - {{ post.created }}
+        <br><br><br>
+    {% endfor %}
+{% else %}
+    <p>There are no posts yet</p>
+{% endif %}
+
+
+{% if user == request.user %}
+    <a href="{% url 'users:update' %}" style="vertical-align:middle;margin:10px 50px;" class="btn btn-success">Update</a>
+{% else %}
+    <a href="#" style="vertical-align:middle;margin:10px 50px;" class="btn btn-success">Follow</a>
+{% endif %}
+
+
+{% endblock content %}
