@@ -1,21 +1,26 @@
 {% extends 'base.html' %} 
 
 
-{% block header %}
-{% include 'nav.html' %}
-{% endblock header %}
+{% block head %}
+    {% load static %}
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Instagram</title>
+{% endblock head %}
 
 
 {% block content %}
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
+<body>
+    
+<p>Hola</p>
 
-<br>
+{{ posts }}
+
 {%for post in posts %}
     <div class="fullCard" id="thumbnail">
         <div class="cardContent">
             <div class="cardText">
-                <img id="user-profile" src="{{ post.profile.picture.url }}" alt="profile_picture">
+                <img id="user-profile" src="#" alt="profile_picture">
                 <p id="username">@{{ post.user.username }}</p>
                 <p id="name">{{ post.user.get_full_name }}</p>
                 <p id="description-post">{{ post.title}}</p>
@@ -25,6 +30,6 @@
         </div>
     </div>
     <br><br>
-{% endfor %}
+{% endfor %}</body>
 
 {% endblock content %}  

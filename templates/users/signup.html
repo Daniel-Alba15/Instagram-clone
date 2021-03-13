@@ -2,7 +2,7 @@
 
 {% block head %}
     {% load static %}
-        <link rel="stylesheet" href="{% static 'css/sign_up.css' %}">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
         <title>Register!</title>
 {% endblock head %}
 
@@ -15,7 +15,7 @@
     <p>{{ succes_sign_up }}</p>
 {% endif %}
 
-<form method="POST" action="{% url 'users:signup' %}"> {% csrf_token %}
+<!-- <form method="POST" action="{% url 'users:signup' %}"> {% csrf_token %}
     <div class="container signup_form">
         <input type="email" placeholder="Email" name="email" maxlength="100" required/>
         <input type="text" placeholder="Username" name="username" maxlength="100" required/>
@@ -27,5 +27,35 @@
         <small class="form-text text-center text-white" id="alert">Have an account? Log in!</small>
         <a class="btn btn-primary color_btn" role="button" id="login_btn" href="{% url 'users:login' %}">Log in</a>
     </div>
-</form>
+</form> -->
+
+<body class="login">
+    <div class="login-form-container">
+        <form action="{% url 'users:signup' %}" method="POST" class="login-form"> {% csrf_token %}
+            <label for="email"></label>
+            <input type="email" class="email" id="email" placeholder="Email" name="email" maxlength="100" required>
+
+            <label for="username"></label>
+            <input type="text" class="username" id="username" placeholder="Username" name="username" maxlength="100" required>
+
+            <label for="password"></label>
+            <input type="password" class="password" id="password" placeholder="Password" name="password" autocapitalize="off" minlength="7" required>
+
+            <label for="confir-password"></label>
+            <input type="password" class="password" id="password" placeholder="Confirm password" name="password_confirm" minlength="7" autocapitalize="off" required>
+            
+            
+            <label for="first-name"></label>
+            <input type="text" class="first-name" id="first-name" name="first_name" maxlength="100" placeholder="First name" required>
+
+            <label for="last-name"></label>
+            <input type="text" class="last-name" id="last-name" name="last_name" maxlength="100" placeholder="Last name" required>
+            <!-- <input type="submit" value="Enviar"/> -->
+            
+            <button type="submit">Sign up</button>
+            <p class="text-singup">Already have an account? <a class="text-singup" href="{% url 'users:login' %}">Login!</a></p>
+                
+        </form>
+    </div>
+</body>
 {% endblock content %}
