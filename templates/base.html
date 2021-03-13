@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     {% load static %}
-        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     {% block head %}
     {% endblock head %}
-    {% comment %} <style>
+
+    <!-- <style>
         .border-img-user {
             border-radius: 50%;
         }
@@ -75,11 +76,10 @@
         #description-post {
             margin-left: 5px;
         }
-    </style> {% endcomment %}
+    </style>  -->
 </head>
-<body>
-    {% block content %}
-        replace me
-    {% endblock %}
-</body>
+{% block content %}
+    replace me
+{% endblock %}
+
 </html>

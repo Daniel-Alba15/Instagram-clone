@@ -1,9 +1,15 @@
 {% extends 'base.html' %} 
+
+
+{% block header %}
+{% include 'nav.html' %}
+{% endblock header %}
+
+
 {% block content %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
 
-{% include 'nav.html' %}
 <br>
 {%for post in posts %}
     <div class="fullCard" id="thumbnail">

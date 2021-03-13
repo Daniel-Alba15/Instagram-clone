@@ -3,19 +3,18 @@
 
 {% block head %}
     <title>Log in</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 {% endblock head %}
 
 
 {% block content %}
 
+
+<body class="login">
+
 {% if succes_sign_up %}
     <p>{{ succes_sign_up }}</p>
 {% endif %}
 
-
-<p>{{ request.body }}</p>
 
 {% if form.errors %}
     <div role="alert" class="alert alert-danger" id="login_errors">
@@ -24,12 +23,30 @@
 {% endif %}
 
 <!-- El nombre de la url en action es el mismo que se le pueso al metodo en el archivo urls.py -->
-<form method="POST" action="{% url 'users:login' %}"> {% csrf_token %}
+<!-- <form method="POST" action="{% url 'users:login' %}"> {% csrf_token %}
     <div id="login_form" class="shadow-lg">
         <input type="text" class="center" name="username" placeholder="Username" required>
         <input type="password" id="password" class="center" placeholder="Password" name="password" required>
         <button class="btn btn-primary center" id="login_btn" type="submit">Login</button>
         <a class="btn btn-primary center" id="signup_btn" role="button" href="{% url 'users:signup' %}">Sign up</a>
     </div>
-</form>
+</form> -->
+
+
+    <div class="login-form-container">
+        <form action="{% url 'users:login' %}" method="POST" class="login-form">{% csrf_token %}
+            <label for="username"></label>
+            <input type="text" class="username" id="username" name="username" placeholder="Username" required>
+
+            <label for="password"></label>
+            <input type="password" class="password" id="password" name="password" placeholder="Password" autocapitalize="off" required>
+
+            <!-- <input type="submit" value="Enviar"/> -->
+            
+            <button type="submit">Login</button>
+            <p class="text-singup">Don't have an account?    <a class="text-singup" href="{% url 'users:signup' %}">Sign up!</a></p>
+                
+        </form>
+    </div>
+</body>
 {% endblock content %}

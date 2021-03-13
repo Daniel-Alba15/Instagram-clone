@@ -1,19 +1,27 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
-<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+<link rel="stylesheet" href="{% static 'css/nav.css' %}">
 
-<div>
-    <nav class="navbar navbar-light navbar-expand-md" id="main_navbar">
-        <div class="container-fluid">
+{% block navbar %}
+<header>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
+        <div class="container">
           <a class="navbar-brand" href="{% url 'posts:feed' %}">Instagram</a>
           <button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon"></span>
+          <span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navcol-1">
-          <input type="search" id="search_bar" />
-          <a class="btn btn-primary" role="button" id="profile_btn" href="{% url 'users:detail' request.user.username %}">Button</a>
-          <a class="btn btn-dark" role="button" id="logout_btn" href="{% url 'users:logout' %}">Log out</a></div>
+              <div class="collapse navbar-collapse show" id="navcol-1">
+                  <form class="form-inline mr-auto" target="_self">
+                      <div class="form-group">
+                        <label for="search-field">
+                        <i class="fa fa-search"></i>
+                        </label><input type="search" class="form-control search-field" id="search-field" name="search" />
+                      </div>
+                  </form>
+                  <a class="btn btn-light action-button" role="button" id="profile_btn" href="{% url 'users:detail' request.user %}">Action </a>
+                  <a class="btn btn-light action-button" role="button" href="{% url 'users:logout' %}">Action </a>
+              </div>
         </div>
     </nav>
-</div>
+</header>
+{% endblock navbar %}

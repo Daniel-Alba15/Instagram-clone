@@ -1,51 +1,80 @@
-/* Login page*/
-:root {
-  --orange: #D68910;
-  /* --orange: #1D8348; */
+.login {
+    background-image: linear-gradient(to left top, #d16ba5, #ab67a0, #876194, #675a82, #4f506c, #4d5873, #4c6179, #4c697e, #4f8ba4, #4dafc5, #4ed5df, #5ffbf1);
+    background-repeat: no-repeat;
+    background-position: center center;
+    /* para que el background ocupe toda la pantalla */
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: monospace;
+
+}
+
+.login-form input {
+    display: block;
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 7px;
+    border-style: none;
+}
+
+.login-form::placeholder {
+    text-align: center;
 }
 
 
-body {
-  background-image: linear-gradient(to left top, #d16ba5, #ab67a0, #876194, #675a82, #4f506c, #4d5873, #4c6179, #4c697e, #4f8ba4, #4dafc5, #4ed5df, #5ffbf1);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-color: var(--dark);
+.login-form button{
+    display: block;
+    width: 30%;
+    background-color: #D68910;
+    color: white;   
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: none;
 }
 
 
-#login_form {
-  width: 25%;
-  margin: auto;
-  padding: 10px;
-  position: absolute;
-  background-color: rgb(52,58,64,.7);
-  top: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translateY(-50%);
-  left: 70%;
-  border-radius: 2%;
+.login-form button:hover, a:hover {
+    background-color: #1ABC9C;
+    cursor: pointer;
 }
 
-.center {
-  margin: auto;
-  width: 50%;
-  display: block;
-  margin-top: 5%;
+.login-form-container {
+    display: block;
+    width: 30%;
+    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10px;
+    margin-top: 50px;
+    background: rgb(52,58,64,.7);
+    border-radius: 5%;            
 }
 
-#login_btn {
-  margin-top: 2em;
-  border-radius: 5%;
-  margin-bottom: 1em;
-  background: var(--orange);
-  border-color: var(--orange);
+.login-form {
+    width: auto;
+    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
 }
 
-#signup_btn {
-  margin-bottom: 5px;
-  background: var(--orange);
-  border-color: var(--orange);
+
+.text-singup {
+    text-align: center;
+    color: white;
+    margin-top: 25px;
 }
 
+.text-singup a {
+    color: rgba(0,149,246,1);
+}
+
+</style>
