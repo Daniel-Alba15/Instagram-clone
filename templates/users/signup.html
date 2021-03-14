@@ -10,12 +10,26 @@
 
 {% block content %}
 
-{% if error %}
-    <p style="color : red;">{{ error }}!</p>
+
+{% if form.errors %}
+<div class="warning-login">
+
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <p id="fail-login"><strong>{{ error }}</strong></p>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <p id="fail-login"><strong>{{ error }}</strong></p>
+        </div>
+    {% endfor %}
+</div>
 {% endif %}
-{% if succes_sign_up %}
-    <p>{{ succes_sign_up }}</p>
-{% endif %}
+
+
 
 <!-- <form method="POST" action="{% url 'users:signup' %}"> {% csrf_token %}
     <div class="container signup_form">

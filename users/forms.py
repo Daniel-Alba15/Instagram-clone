@@ -26,7 +26,7 @@ class SingUpForm(forms.Form):
         query = User.objects.filter(username=username).exists()
 
         if query:
-            raise forms.ValidationError('Username is alredy taken!')
+            raise forms.ValidationError(('Username is alredy taken!'), code='invalid')
 
         return username
 
@@ -37,7 +37,7 @@ class SingUpForm(forms.Form):
         password_confirm = data['password_confirm']
 
         if password != password_confirm:
-            raise forms.ValidationError('Passwords do not match!')
+            raise forms.ValidationError(('Passwords do not match!'), code='invalid')
 
     def save(self):
         data = self.cleaned_data

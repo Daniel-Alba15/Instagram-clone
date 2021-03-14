@@ -5,7 +5,6 @@
     /* para que el background ocupe toda la pantalla */
     background-attachment: fixed;
     background-size: cover;
-    font-family: monospace;
     font-family: 'Noto Sans JP', sans-serif;
 }
 
@@ -80,6 +79,30 @@
 body {
     font-family: Arial, sans-serif;
 }
+
+.warning-login {
+    display: block;
+    margin: auto;
+    width: 30%;
+    text-align: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    
+    /* color: white; */
+    border-radius: 3%;            
+}
+
+#succes-login {
+    padding: 10px;
+    background-color: #4CCA2A;
+}
+
+#fail-login {
+    padding: 10px;
+    background-color: red;
+}
+
 
 .post {
     display: block;

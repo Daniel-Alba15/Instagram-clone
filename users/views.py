@@ -1,12 +1,15 @@
-from django import forms
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.messages.api import error
+from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth import views as auth_views
+from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic import DetailView, FormView, UpdateView
 from django.contrib.auth.models import User
+from django.contrib import messages
+
 from .forms import ProfileForm, SingUpForm
 from .models import Profile
 from posts.models import Post
@@ -42,8 +45,15 @@ def sign_up(request):
 """
 
 
-class LoginView(auth_views.LoginView):
+class LoginView(LoginView):
     template_name = 'users/login.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.get_form().errors:
+            context['error'] = 'Invalid user or password!'
+
+        return context
 
 
 def log_in_view(request):
@@ -62,7 +72,7 @@ def log_in_view(request):
     return render(request, 'users/login.html', {})
 
 
-class LogoutView(LoginRequiredMixin, auth_views.LogoutView):
+class LogoutView(LoginRequiredMixin, LogoutView):
     template_name = 'users/logout.html'
 
 
@@ -84,6 +94,8 @@ class SignupView(FormView):
         return context
 
     def form_valid(self, form):
+        messages.success(
+            request=self.request, message='Account created successfully!')
         form.save()
 
         return super().form_valid(form)
