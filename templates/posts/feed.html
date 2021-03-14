@@ -1,22 +1,49 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 
 
 {% block head %}
-    {% load static %}
-        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <title>Instagram</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<title>Instagram</title>
 {% endblock head %}
 
 
 {% block content %}
 
+
+
 <body>
-    
-<p>Hola</p>
+    {%for post in posts %}
+    <div class="post">
+        <header>
 
-{{ posts }}
+            <img src="{{ post.profile.picture.url }}" alt="{{ post.user.username }}'s profile picture" class="profile-thumbnail">
 
-{%for post in posts %}
+
+            <div class="profile-name">
+                <h3>{{ post.user.get_full_name }}</h3>
+                <h4>@{{ post.user.username }}</h4>
+            </div>
+            <div class="follow-btn">
+                <button>Seguir</button>
+            </div>
+        </header>
+
+        <div id="inner">
+            <p>{{ post.title }}</p>
+            <img src="{{ post.photo.url }}">
+            <span class="date">{{ post.created }}</span>
+            <hr>
+        </div>
+    </div>
+    {% endfor %}
+
+
+    <!-- <p>Hola</p>
+
+    {{ posts }}
+
+    {%for post in posts %}
     <div class="fullCard" id="thumbnail">
         <div class="cardContent">
             <div class="cardText">
@@ -30,6 +57,8 @@
         </div>
     </div>
     <br><br>
-{% endfor %}</body>
+    {% endfor %} -->
 
-{% endblock content %}  
+</body>
+
+{% endblock content %}

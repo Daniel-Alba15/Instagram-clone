@@ -6,7 +6,7 @@
     background-attachment: fixed;
     background-size: cover;
     font-family: monospace;
-
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 .login-form input {
@@ -77,4 +77,101 @@
     color: rgba(0,149,246,1);
 }
 
-</style>
+body {
+    font-family: Arial, sans-serif;
+}
+
+.post {
+    display: block;
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #E8F3F1;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+}
+
+header .profile-thumbnail {
+    height: 100px;
+    width: 100px;
+    border-radius: 40%;
+}
+
+header .profile-name {
+    display: flex;
+    margin-left: 10px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header .follow-btn {
+    display: flex;
+    margin: 0 0 0 auto;
+    align-items: center;
+}
+
+header .follow-btn button {
+    border: 0;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+header h3,
+header h4 {
+    display: flex;
+    margin: 0;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+#inner p {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+#inner img {
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 60%;
+}
+
+#inner hr {
+    margin: 20px 0;
+    border-style: solid;
+    opacity: 0.1;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+}
+
+footer .stats {
+    display: flex;
+    font-size: 15px;
+}
+
+footer .stats strong {
+    font-size: 18px;
+}
+
+footer .stats .likes {
+    margin-left: 10px;
+}
+
+footer .cta {
+    margin-left: auto;
+}
+
+footer .cta button {
+    border: 0;
+    background: transparent;
+}
