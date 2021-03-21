@@ -3,7 +3,7 @@
 
 {% block head %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<link rel="stylesheet" href="{% static 'css/feed.css' %}">
 <title>Instagram</title>
 {% endblock head %}
 
@@ -17,7 +17,8 @@
     <div class="post">
         <header>
 
-            <img src="{{ post.profile.picture.url }}" alt="{{ post.user.username }}'s profile picture" class="profile-thumbnail">
+            <img src="{{ post.profile.picture.url }}" alt="{{ post.user.username }}'s profile picture"
+                class="profile-thumbnail">
 
 
             <div class="profile-name">
@@ -37,28 +38,6 @@
         </div>
     </div>
     {% endfor %}
-
-
-    <!-- <p>Hola</p>
-
-    {{ posts }}
-
-    {%for post in posts %}
-    <div class="fullCard" id="thumbnail">
-        <div class="cardContent">
-            <div class="cardText">
-                <img id="user-profile" src="#" alt="profile_picture">
-                <p id="username">@{{ post.user.username }}</p>
-                <p id="name">{{ post.user.get_full_name }}</p>
-                <p id="description-post">{{ post.title}}</p>
-                <img id="post-content" src="{{ post.photo.url }}">
-                <p id="description-post"><i>{{ post.created }}</i></p>
-            </div>
-        </div>
-    </div>
-    <br><br>
-    {% endfor %} -->
-
 </body>
 
 {% endblock content %}
