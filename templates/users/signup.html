@@ -12,40 +12,24 @@
 
 
 {% if form.errors %}
-<div class="warning-login">
+<div class="warning-alert">
 
     {% for field in form %}
     {% for error in field.errors %}
-    <div class="alert alert-danger">
-        <p id="fail-login"><strong>{{ error }}</strong></p>
+    <div>
+        <p id="fail-alert"><strong>{{ error }}</strong></p>
     </div>
     {% endfor %}
     {% endfor %}
     {% for error in form.non_field_errors %}
-    <div class="alert alert-danger">
-        <p id="fail-login"><strong>{{ error }}</strong></p>
+    <div>
+        <p id="fail-alert"><strong>{{ error }}</strong></p>
     </div>
     {% endfor %}
 </div>
 {% endif %}
 
-
-
-<!-- <form method="POST" action="{% url 'users:signup' %}"> {% csrf_token %}
-    <div class="container signup_form">
-        <input type="email" placeholder="Email" name="email" maxlength="100" required/>
-        <input type="text" placeholder="Username" name="username" maxlength="100" required/>
-        <input type="password" placeholder="Password" name="password" maxlength="100" minlength="7" required/>
-        <input type="password" placeholder="Rewrite your password" name="password_confirm" maxlength="100" minlength="7" required/>
-        <input type="text" placeholder="First name" name="first_name" maxlength="100" required/>
-        <input type="text" placeholder="Last name" name="last_name" maxlength="100" required/>
-        <button class="btn btn-primary color_btn" id="register_btn" type="submit">Register</button>
-        <small class="form-text text-center text-white" id="alert">Have an account? Log in!</small>
-        <a class="btn btn-primary color_btn" role="button" id="login_btn" href="{% url 'users:login' %}">Log in</a>
-    </div>
-</form> -->
-
-<body class="login">
+<body>
     <div class="login-form-container">
         <form action="{% url 'users:signup' %}" method="POST" class="login-form"> {% csrf_token %}
             <label for="email"></label>
@@ -71,7 +55,6 @@
             <label for="last-name"></label>
             <input type="text" class="last-name" id="last-name" name="last_name" maxlength="100" placeholder="Last name"
                 required>
-            <!-- <input type="submit" value="Enviar"/> -->
 
             <button type="submit">Sign up</button>
             <p class="text-singup">Already have an account? <a class="text-singup"
