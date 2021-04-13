@@ -4,7 +4,7 @@
 {% include 'nav.html' %}
 
 
-<p>@{{ user.username }}</p>
+<p style="margin-top: 100px;">@{{ user.username }}</p>
 <p>{{ user.get_full_name }}</p>
 {% if user.profile.picture %}
     <img class="border-img-user" src="{{ user.profile.picture.url }}" alt="user_picture" width="200" height="200">

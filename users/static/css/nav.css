@@ -1,0 +1,34 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#navbar {
+    width: 100%;
+    background-color: white;
+    padding: 5px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+#logo {
+    padding: 10px 0px 0px 10px;
+    width: 130px;
+}
+
+#icons {
+    padding-right: 20px;
+}
+
+#icons>a {
+    margin-left: 15px;
+}

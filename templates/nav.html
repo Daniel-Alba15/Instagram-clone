@@ -1,27 +1,52 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 <link rel="stylesheet" href="{% static 'css/nav.css' %}">
 
 {% block navbar %}
+
 <header>
-    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
-        <div class="container">
-          <a class="navbar-brand" href="{% url 'posts:feed' %}">Instagram</a>
-          <button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler">
-          <span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
-          </button>
-              <div class="collapse navbar-collapse show" id="navcol-1">
-                  <form class="form-inline mr-auto" target="_self">
-                      <div class="form-group">
-                        <label for="search-field">
-                        <i class="fa fa-search"></i>
-                        </label><input type="search" class="form-control search-field" id="search-field" name="search" />
-                      </div>
-                  </form>
-                  <a class="btn btn-light action-button" role="button" id="profile_btn" href="{% url 'users:detail' request.user %}">Action </a>
-                  <a class="btn btn-light action-button" role="button" href="{% url 'users:logout' %}">Action </a>
-              </div>
+    <nav id="navbar">
+        <div>
+            <a href="{% url 'posts:feed' %}">
+                <img id="logo"
+                    src="https://raw.githubusercontent.com/leungwensen/svg-icon/b84b3f3a3da329b7c1d02346865f8e98beb05413/dist/svg/logos/instagram.svg"
+                    alt="Instagram logo">
+            </a>
+        </div>
+
+        <div id="icons">
+            <a href="{% url 'posts:feed' %}">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home-2" width="34"
+                    height="34" viewBox="0 0 24 24" stroke-width="1.5" stroke="#343434" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <polyline points="5 12 3 12 12 3 21 12 19 12" />
+                    <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                    <rect x="10" y="12" width="4" height="4" />
+                </svg>
+            </a>
+
+            <a href="{% url 'posts:create' %}">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-square-plus" width="34"
+                    height="34" viewBox="0 0 24 24" stroke-width="1.5" stroke="#343434" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <rect x="4" y="4" width="16" height="16" rx="2" />
+                    <line x1="9" y1="12" x2="15" y2="12" />
+                    <line x1="12" y1="9" x2="12" y2="15" />
+                </svg>
+            </a>
+
+            <a href="{% url 'users:detail' request.user.username %}">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="34" height="34"
+                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#343434" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <circle cx="12" cy="7" r="4" />
+                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                </svg>
+            </a>
         </div>
     </nav>
 </header>
+
 {% endblock navbar %}
